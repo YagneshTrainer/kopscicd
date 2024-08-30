@@ -74,7 +74,7 @@ pipeline {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     echo "Deploying to Kubernetes..."
                     sh """
-                        helm upgrade --install --force tomcatchart helm/tomcatcharts \
+                        helm upgrade --install --force vprofile-stack helm/tomcatcharts \
                         --set appimage=${registry}:innovative_${BUILD_ID} \
                         --namespace prod
                     """
